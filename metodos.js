@@ -18,15 +18,20 @@ let monstroBatalha;
 function iniciarJogo(){
     const nomeMonstro = document.getElementById('nomeMonstro').value;
     const hpMonstro = document.getElementById('hpMonstro').value;
-    const statusNome = document.getElementById('statusNome');
-    const statusHp = document.getElementById('statusHp');
-    const log = document.getElementById('log');
+    
 
     monstroBatalha = new Monstro (nomeMonstro, hpMonstro);
 
 function atualizaTela(){
-    
+    document.getElementById('statusNome').innerHTML = monstroBatalha.nomeMonstro;
+    document.getElementById('statusHp').innerHTML = `Vida atual: ${monstroBatalha.hpMonstro}`;
+}
+document.getElementById('painel-criacao').style.display = "none";
+document.getElementById('painel-combate').style.display = "block";
+atualizaTela();
+
 }
 
-
+function baterNoMonstro(){
+    
 }
