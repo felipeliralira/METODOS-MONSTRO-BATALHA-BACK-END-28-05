@@ -16,15 +16,15 @@ class Monstro {
 let monstroBatalha;
 
 function iniciarJogo(){
-    const nomeMonstro = document.getElementById('nomeMonstro').value;
-    const hpMonstro = document.getElementById('hpMonstro').value;
+    const nome = document.getElementById('nomeMonstro').value;
+    const hp = document.getElementById('hpMonstro').value;
     
 
-    monstroBatalha = new Monstro (nomeMonstro, hpMonstro);
+    monstroBatalha = new Monstro (nome, hp);
 
 function atualizaTela(){
-    document.getElementById('statusNome').innerHTML = monstroBatalha.nomeMonstro;
-    document.getElementById('statusHp').innerHTML = `Vida atual: ${monstroBatalha.hpMonstro}`;
+    document.getElementById('statusNome').innerHTML = monstroBatalha.nome;
+    document.getElementById('statusHp').innerHTML = `Vida atual: ${monstroBatalha.hp}`;
 }
 document.getElementById('painel-criacao').style.display = "none";
 document.getElementById('painel-combate').style.display = "block";
@@ -33,5 +33,8 @@ atualizaTela();
 }
 
 function baterNoMonstro(){
-    
+    const valorDano = Number((document.getElementById('danoInput').value));
+    const msg = monstroBatalha.receberDano(valorDano);
+    document.getElementById('log').innerHTML = msg;
+    atualizaTela();
 }
